@@ -14,6 +14,20 @@ function AuthForm(props) {
 		}
 	}
 
+	function checkLetters(e) {
+		let letter = (e.nativeEvent.key).charCodeAt(0);
+
+		if (e.currentTarget.type === 'email') {
+			if (letter > 122 || letter < 45 || letter == 47 || letter == 96 || (letter > 57 && letter < 64) ||
+					(letter > 90 && letter < 95)) e.nativeEvent.returnValue = false;
+				
+		} else if (e.currentTarget.type === 'password') {
+			if (letter > 122 || letter < 48 || (letter > 90 && letter < 97 && letter != 95) || (letter > 57 && letter < 65)) {
+				e.nativeEvent.returnValue = false;
+			}
+		}
+	}
+
 	return (
 		<form action="/404/auth/" className="ModalForm" method="POST" onSubmit={getData}> 
 			<div className="Input">
@@ -21,11 +35,11 @@ function AuthForm(props) {
 				<label></label>
 			</div>
 			<div className="Input">
-				<input type="email" placeholder="Электронная почта"/>
+				<input type="email" placeholder="Электронная почта" onKeyDown={checkLetters} />
 				<label></label>
 			</div>
 			<div className="Input">
-				<input type="password" required placeholder="Пароль"/>
+				<input type="password" required placeholder="Пароль" onKeyDown={checkLetters} />
 				<label></label>
 			</div>
 			<button type="submit">
