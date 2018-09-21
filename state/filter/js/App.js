@@ -8,7 +8,9 @@ class App extends React.Component {
 		}
 	}
 
-	changeState = (filter) => this.setState({selected: filter})
+	changeState(filter) {
+		this.setState({selected: filter})
+	}
 	
 	filterFilters() {
 		return (this.state.selected === 'All') 
@@ -22,7 +24,7 @@ class App extends React.Component {
 		    <Toolbar
 		      filters={filters}
 		      selected={this.state.selected}
-		      onSelectFilter={this.changeState} />
+		      onSelectFilter={this.changeState.bind(this)} />
 		    <Portfolio projects={this.filterFilters()} />
 		  </div>
 			)
