@@ -37,7 +37,11 @@ class App extends React.Component {
 
 		return (
 			<section>
-        <div className="Charts">
+				<Chart data={data} labels={labels}>
+					
+				</Chart>
+
+        {/* <div className="Charts">
           { data.map((serie, serieIndex) => {
             var sortedSerie = serie.slice(0),
               sum;
@@ -75,7 +79,7 @@ class App extends React.Component {
               </div>
             );
           }) }
-        </div>
+        </div> */}
 
         <div className="Charts">
   				{ data.map((serie, serieIndex) => {
