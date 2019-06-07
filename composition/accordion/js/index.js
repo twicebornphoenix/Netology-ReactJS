@@ -37,7 +37,7 @@ class Section extends React.Component {
         <h3 className="sectionhead">{sectionTitle}</h3>
         <div className="articlewrap">
           <div className="article">
-            {sectionText}
+	            {sectionText}
           </div>
         </div>
       </section>
