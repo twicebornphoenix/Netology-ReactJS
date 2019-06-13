@@ -36,7 +36,7 @@ class App extends React.Component {
                 <div className="select-font">
                     <h2 className={this.state.selectedFont ? 'hidden' : ''}>Выберите шрифт</h2>
                     <FontSelector fonts={this.state.fonts} onSelect={this.selectFont}
-                                  selected={this.state.selectedFont}/>
+                                  selected={this.state.selectedFont} />
                 </div>
                 {this.state.selectedFont
                 && <TextRenderLine value={this.state.text} onChange={this.setText}/>
